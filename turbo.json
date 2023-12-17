@@ -1,17 +1,28 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": ["**/.env.*local", "**/.env", "**/.env.*"],
+  "globalEnv": ["NEXT_PUBLIC_API_URL"],
   "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
     "dev": {
+      "dependsOn": [],
       "cache": false,
       "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^db:generate", "^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^typecheck"]
+    },
+    "migrate": {
+      "cache": false
+    },
+    "typecheck": {
+      "dependsOn": []
     }
   }
 }

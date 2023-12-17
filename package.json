@@ -5,18 +5,20 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "migrate": "turbo run migrate",
+    "db:generate": "turbo run db:generate"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@hirestack/eslint-config": "*",
+    "@hirestack/typescript-config": "*",
     "prettier": "^3.1.0",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "bun@1.0.13",
+  "packageManager": "bun@1.0.18",
   "workspaces": [
     "apps/*",
     "packages/*"
