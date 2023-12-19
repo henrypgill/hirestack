@@ -1,7 +1,6 @@
 {
   "extends": "@hirestack/typescript-config/nest.json",
   "include": [
-    "**/*.ts",
-    "./postcss.config.js"
+    "src/**/*.ts"
   ],
 }
