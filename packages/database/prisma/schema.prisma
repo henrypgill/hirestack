@@ -14,17 +14,19 @@ datasource db {
 model User {
   id      String   @id @default(auto()) @map("_id") @db.ObjectId
   name    String
-  pronouns String
-  jobTitle String
-  location String
-  email   String   @unique
-  phone   String   @unique
-  linkedin String
-  github  String
-  website String
-  bio     String
+  pronouns String?
+  jobTitle String?
+  location String?
+  email   String?   @unique
+  phone   String?   @unique
+  linkedin String?
+  github  String?
+  website String?
+  bio     String?
 
   education Education[]
+  skills Skill[]
+  roles Role[]
 }
 
 model Education {
@@ -37,20 +39,25 @@ model Education {
   description String
 }
 
-model TechnicalSkill {
+model Skill {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  experience String
-  name        String
+  User       User     @relation(fields: [userId], references: [id])
+  userId      String @db.ObjectId
   type        String
+  name        String
+  experience Int
+  description String
 }
 
-model History {
+model Role {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  User       User     @relation(fields: [userId], references: [id])
+  userId      String @db.ObjectId
   title      String
   company    String
-  startMonth Int
-  startYear Int
-  endMonth Int
-  endYear Int
   description String
+  startMonth Int?
+  startYear Int
+  endMonth Int?
+  endYear Int?
 }
