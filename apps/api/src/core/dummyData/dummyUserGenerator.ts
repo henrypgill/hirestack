@@ -1,8 +1,8 @@
 import { Prisma } from "@hirestack/database";
-import { generateLoremIpsum, randomArrayElement } from "../utils";
-import { dummyManyEducationGenerator } from "./dummyEducationGenerator";
-import { dummyManySkillGenerator } from "./dummySkillGenerator";
-import { dummyManyRoleGenerator } from "./dummyRoleGenerator";
+import { generateLoremIpsum, randomArrayElement } from "../utils.js";
+import { dummyManyEducationGenerator } from "./dummyEducationGenerator.js";
+import { dummyManySkillGenerator } from "./dummySkillGenerator.js";
+import { dummyManyRoleGenerator } from "./dummyRoleGenerator.js";
 
 
 export function dummyManyUserGenerator(count): Prisma.UserCreateManyInput[] {

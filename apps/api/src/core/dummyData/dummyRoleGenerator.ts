@@ -1,5 +1,5 @@
 import { Prisma } from "@hirestack/database";
-import { generateLoremIpsum, randomArrayElement } from "../utils";
+import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 
 export function dummyManyRoleGenerator(count): Prisma.RoleCreateWithoutUserInput[] {
     const roles:  Prisma.RoleCreateWithoutUserInput[] = []

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { DbUtilsController } from './dbUtils.controller';
-import { DbUtilsService } from './dbUtils.service';
+import { DbUtilsController } from './dbUtils.controller.js';
+import { DbUtilsService } from './dbUtils.service.js';
 
 @Module({
   imports: [],

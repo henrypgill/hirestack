@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { DbUtilsService } from './dbUtils.service';
+import { DbUtilsService } from './dbUtils.service.js';
 import { User } from '@hirestack/database';
 
 @Controller()

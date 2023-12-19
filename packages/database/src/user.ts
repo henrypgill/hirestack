@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client"
 
 
 export type FullUser = Prisma.UserGetPayload<FullUserArgs>
@@ -17,7 +17,9 @@ export function fullUserArgs() {
             github: true as true,
             website: true as true,
             bio: true as true,
+            education: true as true,
+            skills: true as true,
+            roles: true as true
         },
-        include: {education: true as true, skills: true as true, roles: true as true}
     }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import {  dummyManyUserGenerator, dummyUserGenerator } from '../core/dummyData/dummyUserGenerator';
-import { database } from '../main';
+import {  dummyManyUserGenerator, dummyUserGenerator } from '../core/dummyData/dummyUserGenerator.js';
+import { database } from '../main.js';
 import {  Prisma, User } from '@hirestack/database';
 
 
@@ -23,7 +23,8 @@ export class DbUtilsService {
         bio: true,
         education: true,
         skills: true,
-        roles: true}
+        roles: true,
+      }
       }
 
     

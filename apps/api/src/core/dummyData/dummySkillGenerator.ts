@@ -1,6 +1,6 @@
 
 import { Prisma } from "@hirestack/database"
-import { generateLoremIpsum, randomArrayElement } from "../utils";
+import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 
 
 
