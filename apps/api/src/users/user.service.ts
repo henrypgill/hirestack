@@ -4,8 +4,20 @@ import { database } from '../main.js';
 
 @Injectable()
 export class UserService {
+
   async getAll(): Promise<FullUser[]> {
     const users = await database.user.findMany<FullUserArgs>(fullUserArgs());
     return users
   }
+
+  async getUnique(userId: string): Promise<FullUser> {
+    const user = await database.user.findUnique<FullUserArgs & {where: {id: string}}>({
+      where: {
+        id: userId
+      },
+      ...fullUserArgs()
+  });
+    return user
+  }
+
 }
