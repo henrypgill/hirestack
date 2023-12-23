@@ -1,4 +1,5 @@
-import { Prisma } from "@prisma/client"
+import { Prisma, Skill } from "@prisma/client"
+import { EducationFilter, SkillFilter } from "./types";
 
 
 export type FullUser = Prisma.UserGetPayload<FullUserArgs>
@@ -21,5 +22,43 @@ export function fullUserArgs() {
             skills: true as true,
             roles: true as true
         },
+    }
+}
+
+type A = Skill
+
+export interface UserFilterArgs {
+    education: EducationFilter[];
+    skills: SkillFilter[];
+    experience?: number;
+  }
+
+export function getFilterUserArgs({education, skills, experience}: UserFilterArgs): Prisma.UserFindManyArgs {
+      
+    const AndArgs: Prisma.UserWhereInput[] = []
+
+    skills.forEach(skill => {
+        AndArgs.push({
+            AND: [
+                {
+                    skills: {
+                        some: {
+                            experience: {
+                                gte: skill.experience
+                            }
+                        }
+                }
+            }
+        ]
+        })
+    })
+
+    return {
+        ...fullUserArgs(),
+        where: {
+            OR: [
+
+            ]
+        }
     }
 }
