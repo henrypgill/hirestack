@@ -1,6 +1,8 @@
-import { FullUser, FullUserArgs, fullUserArgs } from '@hirestack/database';
+import { EducationFilter, EducationLevel, FullUser, FullUserArgs, SkillFilter, UserFilterArgs, fullUserArgs } from '@hirestack/database';
 import { Injectable } from '@nestjs/common';
 import { database } from '../main.js';
+
+
 
 @Injectable()
 export class UserService {
@@ -11,13 +13,26 @@ export class UserService {
   }
 
   async getUnique(userId: string): Promise<FullUser> {
-    const user = await database.user.findUnique<FullUserArgs & {where: {id: string}}>({
+    const user = await database.user.findUnique({
       where: {
         id: userId
       },
       ...fullUserArgs()
   });
     return user
+  }
+
+
+  async getFilteredUsers(filterArgs: UserFilterArgs): Promise<FullUser[]> {
+
+
+
+    const users = await database.user.findMany({
+      ...fullUserArgs(),
+      where: {
+
+      }
+    })
   }
 
 }
