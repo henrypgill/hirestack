@@ -48,7 +48,7 @@ export function dummyEducationGenerator(): Prisma.EducationCreateWithoutUserInpu
         "Cyber Retraining Academy London"
       ]);
 
-    const randomType = () => randomArrayElement(["bachelors", "masters", "phd", "bootcamp", "course"])
+    const randomType = () => randomArrayElement(["undergraduate", "masters", "phd", "bootcamp", "course"])
     
     return {
         specialization: randomSpecialisation(),
