@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 import { setupMongoClient } from "./core/mongoSetup.js";
 
-const database = setupMongoClient(process.env.DATABASE_URL)
+export const database = setupMongoClient(process.env.DATABASE_URL)
 
 async function bootstrap() {
 
