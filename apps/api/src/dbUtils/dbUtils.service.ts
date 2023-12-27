@@ -1,32 +1,27 @@
+import { User } from "@hirestack/database";
 import { Injectable } from "@nestjs/common";
 import {
   dummyManyUserGenerator,
   dummyUserGenerator,
 } from "../core/dummyData/dummyUserGenerator.js";
 import { database } from "../main.js";
-import { Prisma, User, fullUserArgs } from "@hirestack/database";
 
 @Injectable()
 export class DbUtilsService {
   async addDummyUser(): Promise<User> {
-    const dummyUserArgs: Prisma.UserCreateArgs = {
-      data: dummyUserGenerator(),
-      ...fullUserArgs(),
-    };
+    const dummyUser: User= dummyUserGenerator();
 
-    const newUser = await database.user.create(dummyUserArgs);
+    const newUserId = await database.users.insertOne(dummyUser);
+    const newUser = await database.users.findOne({_id: newUserId})
+
     return newUser;
   }
 
-  async populateDatabase(): Promise<User[]> {
-    const dummyUsersArgs: Prisma.UserCreateManyArgs = {
-      data: dummyManyUserGenerator(1),
-    };
+  async populateDatabase(count: number): Promise<User[]> {
+    const dummyUsers = dummyManyUserGenerator(count)
 
-    await database.user.createMany(dummyUsersArgs);
-    const newUsers = await database.user.findMany({
-      include: { education: true, skills: true, roles: true },
-    });
-    return newUsers;
+    await database.users.insertMany(dummyUsers);
+    const newUsers = await database.users.find({})
+    return newUsers.toArray();
   }
 }

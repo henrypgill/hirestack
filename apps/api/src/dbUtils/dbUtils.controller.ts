@@ -8,10 +8,7 @@ export class DbUtilsController {
 
   @Get("/populateDatabase/users/:count")
   async populateUsers(@Param() params: { count: number }): Promise<User[]> {
-    const newUsers: User[] = [];
-    for (let i = 0; i < params.count; i++) {
-      newUsers.push(await this.dbUtilsService.addDummyUser());
-    }
+    const newUsers: User[] = await this.dbUtilsService.populateDatabase(params.count)
 
     return newUsers;
   }
