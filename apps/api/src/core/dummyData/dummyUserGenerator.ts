@@ -4,8 +4,8 @@ import { dummyManySkillGenerator } from "./dummySkillGenerator.js";
 import { dummyManyRoleGenerator } from "./dummyRoleGenerator.js";
 import { User, UserInsertInput } from "@hirestack/database";
 
-export function dummyManyUserGenerator(count): User[] {
-  const users: User[] = [];
+export function dummyManyUserGenerator(count): UserInsertInput[] {
+  const users: UserInsertInput[] = [];
   for (let i = 0; i < count; i++) {
     users.push(dummyUserGenerator());
   }
@@ -28,7 +28,6 @@ export function dummyUserGenerator(): UserInsertInput {
     website: "https://github.com/henrypgill",
     bio: generateLoremIpsum(100),
     education:     dummyManyEducationGenerator(Math.floor(Math.random() * 4) + 1),
-,
     skills: dummyManySkillGenerator(Math.floor(Math.random() * 4) + 1),
     
     roles: dummyManyRoleGenerator(Math.floor(Math.random() * 4) + 1),
