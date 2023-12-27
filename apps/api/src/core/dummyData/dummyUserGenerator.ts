@@ -1,18 +1,18 @@
+import { User } from "@hirestack/database";
 import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 import { dummyManyEducationGenerator } from "./dummyEducationGenerator.js";
-import { dummyManySkillGenerator } from "./dummySkillGenerator.js";
 import { dummyManyRoleGenerator } from "./dummyRoleGenerator.js";
-import { User, UserInsertInput } from "@hirestack/database";
+import { dummyManySkillGenerator } from "./dummySkillGenerator.js";
 
-export function dummyManyUserGenerator(count): UserInsertInput[] {
-  const users: UserInsertInput[] = [];
+export function dummyManyUserGenerator(count): User[] {
+  const users: User[] = [];
   for (let i = 0; i < count; i++) {
     users.push(dummyUserGenerator());
   }
   return users;
 }
 
-export function dummyUserGenerator(): UserInsertInput {
+export function dummyUserGenerator(): User {
   const firstName = randomFirstName();
   const lastName = randomLastName();
 
