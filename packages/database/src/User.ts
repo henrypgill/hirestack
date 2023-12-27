@@ -3,7 +3,7 @@ import { Role } from "./Role"
 import { Skill, SkillFilter } from "./Skill"
 
 export interface User {
-  _id: string
+  _id?: string
   name: string
   pronouns: string
   jobTitle: string
