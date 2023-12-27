@@ -1,3 +1,4 @@
-export * from "@prisma/client";
-export * from "./src/user";
-export * from "./src/types";
+export * from "./src/User";
+export * from "./src/Education"
+export * from "./src/Role"
+export * from "./src/Skill"
