@@ -1,7 +1,5 @@
 
 export interface Education {
-    id: string;
-    userId: string;
     specialization: string;
     provider: string;
     type: EducationType;

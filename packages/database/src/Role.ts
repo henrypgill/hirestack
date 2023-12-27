@@ -1,7 +1,5 @@
 
 export interface Role {
-    id: string;
-    userId: string;
     title: string;
     company: string;
     description: string;
