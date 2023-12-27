@@ -3,14 +3,14 @@ import { AppModule } from "./app.module.js";
 import dotenv from "dotenv";
 
 import { MongoClient } from "mongodb";
+import { setupMongoClient } from "./core/mongoSetup.js";
 
-
-export const database = new MongoClient(process.env.DATABASE_URL)
+const database = setupMongoClient(process.env.DATABASE_URL)
 
 async function bootstrap() {
 
   console.log("Connecting to database...");
-  await database.connect();
+  await database.client.connect();
   console.log("Connected to database");
 
 
@@ -30,6 +30,6 @@ async function bootstrap() {
 }
 bootstrap().catch(async (e) => {
   console.error(e);
-  await database.close()
+  await database.client.close()
   process.exit(1);
 });
