@@ -19,7 +19,7 @@ export interface User {
   roles: Role[];
 }
 
-
+export type UserInsertInput = Omit<User, "_id" >
 
 
 
