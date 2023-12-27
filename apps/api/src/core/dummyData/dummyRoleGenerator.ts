@@ -1,17 +1,17 @@
-import { Prisma } from "@hirestack/database";
+import { Role } from "@hirestack/database";
 import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 
 export function dummyManyRoleGenerator(
   count,
-): Prisma.RoleCreateWithoutUserInput[] {
-  const roles: Prisma.RoleCreateWithoutUserInput[] = [];
+): Role[] {
+  const roles: Role[] = [];
   for (let i = 0; i < count; i++) {
     roles.push(dummyRoleGenerator());
   }
   return roles;
 }
 
-export function dummyRoleGenerator(): Prisma.RoleCreateWithoutUserInput {
+export function dummyRoleGenerator(): Role {
   const randomTitle = () =>
     randomArrayElement([
       "software engineer",

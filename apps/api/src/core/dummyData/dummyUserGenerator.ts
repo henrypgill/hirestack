@@ -1,18 +1,18 @@
-import { Prisma } from "@hirestack/database";
 import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 import { dummyManyEducationGenerator } from "./dummyEducationGenerator.js";
 import { dummyManySkillGenerator } from "./dummySkillGenerator.js";
 import { dummyManyRoleGenerator } from "./dummyRoleGenerator.js";
+import { User, UserInsertInput } from "@hirestack/database";
 
-export function dummyManyUserGenerator(count): Prisma.UserCreateManyInput[] {
-  const users: Prisma.UserCreateManyInput[] = [];
+export function dummyManyUserGenerator(count): User[] {
+  const users: User[] = [];
   for (let i = 0; i < count; i++) {
     users.push(dummyUserGenerator());
   }
   return users;
 }
 
-export function dummyUserGenerator(): Prisma.UserCreateInput {
+export function dummyUserGenerator(): UserInsertInput {
   const firstName = randomFirstName();
   const lastName = randomLastName();
 
@@ -27,15 +27,12 @@ export function dummyUserGenerator(): Prisma.UserCreateInput {
     github: "https://github.com/henrypgill",
     website: "https://github.com/henrypgill",
     bio: generateLoremIpsum(100),
-    education: {
-      create: dummyManyEducationGenerator(Math.floor(Math.random() * 4) + 1),
-    },
-    skills: {
-      create: dummyManySkillGenerator(Math.floor(Math.random() * 4) + 1),
-    },
-    roles: {
-      create: dummyManyRoleGenerator(Math.floor(Math.random() * 4) + 1),
-    },
+    education:     dummyManyEducationGenerator(Math.floor(Math.random() * 4) + 1),
+,
+    skills: dummyManySkillGenerator(Math.floor(Math.random() * 4) + 1),
+    
+    roles: dummyManyRoleGenerator(Math.floor(Math.random() * 4) + 1),
+    
     experience: Math.floor(Math.random() * 15),
   };
 }

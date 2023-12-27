@@ -1,17 +1,17 @@
-import { Prisma } from "@hirestack/database";
-import { generateLoremIpsum, randomArrayElement } from "../utils.js";
+import { Education } from "@hirestack/database";
+import { generateLoremIpsum, randomArrayElement } from "../utils";
 
 export function dummyManyEducationGenerator(
   count,
-): Prisma.EducationCreateWithoutUserInput[] {
-  const education: Prisma.EducationCreateWithoutUserInput[] = [];
+): Education[] {
+  const education: Education[] = [];
   for (let i = 0; i < count; i++) {
     education.push(dummyEducationGenerator());
   }
   return education;
 }
 
-export function dummyEducationGenerator(): Prisma.EducationCreateWithoutUserInput {
+export function dummyEducationGenerator(): Education {
   const randomSpecialisation = () =>
     randomArrayElement([
       "computer science",

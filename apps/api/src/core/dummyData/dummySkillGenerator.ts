@@ -1,17 +1,17 @@
-import { Prisma } from "@hirestack/database";
+import { Skill } from "@hirestack/database";
 import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 
 export function dummyManySkillGenerator(
   count,
-): Prisma.SkillCreateWithoutUserInput[] {
-  const skills: Prisma.SkillCreateWithoutUserInput[] = [];
+): Skill[] {
+  const skills: Skill[] = [];
   for (let i = 0; i < count; i++) {
     skills.push(dummySkillGenerator());
   }
   return skills;
 }
 
-export function dummySkillGenerator(): Prisma.SkillCreateWithoutUserInput {
+export function dummySkillGenerator(): Skill {
   const randomName = () =>
     randomArrayElement([
       "javascript",
