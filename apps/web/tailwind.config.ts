@@ -3,9 +3,7 @@ import sharedConfig from "@hirestack/tailwind-config";
 
 const config: Config = {
   presets: [sharedConfig],
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
 };
 
 export default config;

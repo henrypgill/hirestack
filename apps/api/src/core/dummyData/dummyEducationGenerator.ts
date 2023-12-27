@@ -1,60 +1,88 @@
-
-import { Prisma } from "@hirestack/database"
+import { Prisma } from "@hirestack/database";
 import { generateLoremIpsum, randomArrayElement } from "../utils.js";
 
-
-export function dummyManyEducationGenerator(count): Prisma.EducationCreateWithoutUserInput[] {
-    const education:  Prisma.EducationCreateWithoutUserInput[] = []
-    for (let i = 0; i < count; i++) {
-        education.push(dummyEducationGenerator())
-    }
-    return education
+export function dummyManyEducationGenerator(
+  count,
+): Prisma.EducationCreateWithoutUserInput[] {
+  const education: Prisma.EducationCreateWithoutUserInput[] = [];
+  for (let i = 0; i < count; i++) {
+    education.push(dummyEducationGenerator());
+  }
+  return education;
 }
-
 
 export function dummyEducationGenerator(): Prisma.EducationCreateWithoutUserInput {
-    const randomSpecialisation = () => randomArrayElement(["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Biomedical Engineering", "Chemical Engineering", "Civil Engineering", "Aerospace Engineering", "Software Engineering", "Mathematics", "Physics", "Chemistry", "Biology", "Environmental Science", "Information Technology", "Data Science", "Astrophysics", "Materials Science", "Geology", "Statistics", "Robotics Engineering"]);
-    
-    const randomProvider = () => randomArrayElement([
-        "University of Cambridge",
-        "Imperial College London",
-        "University of Oxford",
-        "University College London (UCL)",
-        "University of Edinburgh",
-        "University of Manchester",
-        "University of Bristol",
-        "University of Warwick",
-        "University of Glasgow",
-        "University of Southampton",
-        "University of Birmingham",
-        "University of Leeds",
-        "University of Sheffield",
-        "University of Nottingham",
-        "University of York",
-        "King's College London",
-        "Queen Mary University of London",
-        "University of Liverpool",
-        "University of Bath",
-        "Lancaster University",
-        "Le Wagon London",
-        "General Assembly London",
-        "Makers Academy London",
-        "Flatiron School London",
-        "Northcoders Manchester",
-        "Tech Talent Academy Edinburgh",
-        "CodeClan Glasgow",
-        "School of Code Birmingham",
-        "DevelopMe Bristol",
-        "Cyber Retraining Academy London"
-      ]);
+  const randomSpecialisation = () =>
+    randomArrayElement([
+      "computer science",
+      "electrical engineering",
+      "mechanical engineering",
+      "biomedical engineering",
+      "chemical engineering",
+      "civil engineering",
+      "aerospace engineering",
+      "software engineering",
+      "mathematics",
+      "physics",
+      "chemistry",
+      "biology",
+      "environmental science",
+      "information technology",
+      "data science",
+      "astrophysics",
+      "materials science",
+      "geology",
+      "statistics",
+      "robotics engineering",
+    ]);
 
-    const randomType = () => randomArrayElement(["undergraduate", "masters", "phd", "bootcamp", "course"])
-    
-    return {
-        specialization: randomSpecialisation(),
-        provider: randomProvider(),
-        type: randomType(),
-        description: generateLoremIpsum(100)
-    }
+  const randomProvider = () =>
+    randomArrayElement([
+      "university of cambridge",
+      "imperial college london",
+      "university of oxford",
+      "university college london (ucl)",
+      "university of edinburgh",
+      "university of manchester",
+      "university of bristol",
+      "university of warwick",
+      "university of glasgow",
+      "university of southampton",
+      "university of birmingham",
+      "university of leeds",
+      "university of sheffield",
+      "university of nottingham",
+      "university of york",
+      "king's college london",
+      "queen mary university of london",
+      "university of liverpool",
+      "university of bath",
+      "lancaster university",
+      "le wagon london",
+      "general assembly london",
+      "makers academy london",
+      "flatiron school london",
+      "northcoders manchester",
+      "tech talent academy edinburgh",
+      "codeclan glasgow",
+      "school of code birmingham",
+      "developme bristol",
+      "cyber retraining academy london",
+    ]);
+
+  const randomType = () =>
+    randomArrayElement([
+      "undergraduate",
+      "masters",
+      "phd",
+      "bootcamp",
+      "course",
+    ]);
+
+  return {
+    specialization: randomSpecialisation(),
+    provider: randomProvider(),
+    type: randomType(),
+    description: generateLoremIpsum(100),
+  };
 }
-

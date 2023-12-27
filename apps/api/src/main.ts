@@ -1,5 +1,5 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module.js';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module.js";
 // import dotenv from "dotenv";
 
 import { PrismaClient } from "@prisma/client";
@@ -7,7 +7,6 @@ import { PrismaClient } from "@prisma/client";
 // dotenv.config();
 
 export const database = new PrismaClient();
-
 
 async function bootstrap() {
   console.log("Connecting to database...");
@@ -18,8 +17,7 @@ async function bootstrap() {
   await app.listen(port);
   console.log("Listening on port: " + port);
 }
-bootstrap()
-.catch(async (e) => {
-    console.error(e);
-    process.exit(1);
+bootstrap().catch(async (e) => {
+  console.error(e);
+  process.exit(1);
 });
