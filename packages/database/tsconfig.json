@@ -1,4 +1,4 @@
 {
-  "extends": "@hirestack/typescript-config/prisma.json",
+  "extends": "@hirestack/typescript-config/base.json",
   "include": ["**/*.ts"],
 }

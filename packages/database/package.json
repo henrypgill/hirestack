@@ -5,7 +5,6 @@
   "type": "module",
   "types": "./index.ts",
   "scripts": {
-    "dev": "bunx prisma studio --browser=none",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch",
