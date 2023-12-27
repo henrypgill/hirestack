@@ -6,7 +6,6 @@
   "types": "./index.ts",
   "scripts": {
     "dev": "bunx prisma studio --browser=none",
-    "db:generate": "bunx prisma generate",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch",
@@ -19,10 +18,8 @@
     "@hirestack/typescript-config": "workspace:*",
     "eslint": "latest",
     "prettier": "latest",
-    "prisma": "5.7.1",
     "typescript": "^5.3.2"
   },
   "dependencies": {
-    "@prisma/client": "5.7.1"
   }
 }
