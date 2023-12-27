@@ -14,6 +14,7 @@ export interface User {
   github: string
   website: string
   bio: string
+  experience: number;
   education: Education[],
   skills: Skill[];
   roles: Role[];
