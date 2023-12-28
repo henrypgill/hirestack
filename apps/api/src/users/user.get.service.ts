@@ -13,10 +13,8 @@ export class UserGetService {
   }
 
   async getUnique(userId: string): Promise<User> {
-    const o_id = new ObjectId
-    const user = await database.users.find({_id: userId})
-    console.log(user.toArray())
-    return user.toArray()[0];
+    const user = await database.users.findOne({_id: new ObjectId(userId)})
+    return user;
   }
 
   async getFiltered(filterString: string): Promise<User[]> {
