@@ -1,9 +1,10 @@
+import { ObjectId } from "mongodb"
 import { Education, EducationFilter } from "./Education"
 import { Role } from "./Role"
 import { Skill, SkillFilter } from "./Skill"
 
 export interface User {
-  _id?: string
+  _id?: ObjectId
   name: string
   pronouns: string
   jobTitle: string
