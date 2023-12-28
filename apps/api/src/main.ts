@@ -28,8 +28,9 @@ async function bootstrap() {
   await app.listen(port);
   console.log("Connection open. Listening on port: " + port);
 }
-bootstrap().catch(async (e) => {
-  console.error(e);
-  await database.client.close()
-  process.exit(1);
-});
+bootstrap()
+// .catch(async (e) => {
+//   console.error(e);
+//   await database.client.close()
+//   process.exit(1);
+// });
